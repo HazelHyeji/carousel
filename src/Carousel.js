@@ -49,7 +49,9 @@ export class Carousel extends Component {
         return (
             <div className="carousel-container">
                 <div className="carousel-wrapper">
-                    <button onClick={this.buttonClickLeft}>left</button>
+                    <button 
+                        onClick={this.state.scrollMove <= this.state.imageWidth * (this.state.frames.length + 1) && this.state.scrollMove >= 0 ? this.buttonClickLeft : undefined }
+                    >left</button>
                     <ul ref="carouselViewport">
                         {
                             this.state.frames.map((frame, i) => (
@@ -57,7 +59,9 @@ export class Carousel extends Component {
                             ))
                         }
                     </ul>
-                    <button onClick={this.buttonClickRight}>right</button>
+                    <button 
+                        onClick={this.state.scrollMove >= this.state.imageWidth * (this.state.frames.length + 1) ? undefined : this.buttonClickRight}
+                        >right</button>
                     <dl className="indicator">
                         {
                             this.state.frames.map(dd => <dd></dd>)
