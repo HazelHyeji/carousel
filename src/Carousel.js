@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Carousel.css';
-import Indicator from './Indicator';
 export class Carousel extends Component {
     constructor(props) {
         super(props);
@@ -45,6 +44,7 @@ export class Carousel extends Component {
         const { carouselViewport } = this.refs;
         carouselViewport.scrollLeft = this.state.scrollMove;
     }
+
     render() {
         return (
             <div className="carousel-container">
@@ -58,8 +58,12 @@ export class Carousel extends Component {
                         }
                     </ul>
                     <button onClick={this.buttonClickRight}>right</button>
+                    <dl className="indicator">
+                        {
+                            this.state.frames.map(dd => <dd></dd>)
+                        }
+                    </dl>
                 </div>
-                <Indicator frames={this.state.frames} indicatorOrder={this.state.indicatorOrder} />
             </div>
         )
     }

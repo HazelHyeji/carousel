@@ -12,3 +12,15 @@
 .carousel-wrapper ul li{
     width: 800px;
 }
+.indicator {
+    display: flex;
+}
+.indicator dd{
+    width: 8px;
+    height: 8px;
+    border-radius: 100px;
+    background-color: palevioletred;
+}
+.active{
+    background-color: blueviolet;
+}
