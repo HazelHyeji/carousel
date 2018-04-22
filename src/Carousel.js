@@ -44,8 +44,12 @@ export class Carousel extends Component {
         carouselViewport.scrollLeft = this.state.scrollMove;
         console.log(this.state.scrollMove / this.state.imageWidth, this.state.indicatorActive);
     }
-
+    
     render() {
+        const sliderRender =  this.state.frames.map((frame, i) => (
+            <li><img width="800px" height="300px" src={frame} alt="carousel-images"></img></li>
+        ))
+        const indicatorRender =  this.state.frames.map(dd => <dd className={ this.state.indicatorActive === this.state.scrollMove / this.state.imageWidth ?  "active" : null }></dd>)
         return (
             <div className="carousel-container">
                 <div className="carousel-wrapper">
@@ -53,19 +57,13 @@ export class Carousel extends Component {
                         onClick={this.state.scrollMove <= this.state.imageWidth * (this.state.frames.length + 1) && this.state.scrollMove >= 0 ? this.buttonClickLeft : undefined }
                     >left</button>
                     <ul ref="carouselViewport">
-                        {
-                            this.state.frames.map((frame, i) => (
-                                <li><img width="800px" height="300px" src={frame} alt="carousel-images"></img></li>
-                            ))
-                        }
+                        { sliderRender }
                     </ul>
                     <button 
                         onClick={this.state.scrollMove >= this.state.imageWidth * (this.state.frames.length + 1) ? undefined : this.buttonClickRight}
                         >right</button>
                     <dl className="indicator">
-                        {
-                            this.state.frames.map(dd => <dd className={ this.state.indicatorActive === this.state.scrollMove / this.state.imageWidth ?  "active" : null }></dd>)
-                        }
+                        { indicatorRender }
                     </dl>
                 </div>
             </div>
