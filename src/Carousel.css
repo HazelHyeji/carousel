@@ -21,6 +21,6 @@
     border-radius: 100px;
     background-color: palevioletred;
 }
-.active{
+.indicator .active{
     background-color: blueviolet;
 }

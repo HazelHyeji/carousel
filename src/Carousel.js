@@ -6,8 +6,7 @@ export class Carousel extends Component {
         this.state = {
             imageWidth: 800,
             scrollMove: 0,
-            indicatorOrder: 0,
-            indicatorActive: true,
+            indicatorActive: 0,
             frames:
                 [
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/One_TV_Logo.svg/2000px-One_TV_Logo.svg.png",
@@ -43,6 +42,7 @@ export class Carousel extends Component {
         });
         const { carouselViewport } = this.refs;
         carouselViewport.scrollLeft = this.state.scrollMove;
+        console.log(this.state.scrollMove / this.state.imageWidth, this.state.indicatorActive);
     }
 
     render() {
@@ -64,7 +64,7 @@ export class Carousel extends Component {
                         >right</button>
                     <dl className="indicator">
                         {
-                            this.state.frames.map(dd => <dd></dd>)
+                            this.state.frames.map(dd => <dd className={ this.state.indicatorActive === this.state.scrollMove / this.state.imageWidth ?  "active" : null }></dd>)
                         }
                     </dl>
                 </div>
