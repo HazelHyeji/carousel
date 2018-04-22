@@ -1,0 +1,14 @@
+.carousel-container{
+    width: 1000px;
+    margin: 0 auto;
+    background-color: bisque;
+}
+.carousel-wrapper ul {
+    display: flex;
+    width: 800px;
+    overflow-x:hidden;
+    margin: 0 auto;
+}
+.carousel-wrapper ul li{
+    width: 800px;
+}
