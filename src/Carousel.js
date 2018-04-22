@@ -44,12 +44,12 @@ export class Carousel extends Component {
         carouselViewport.scrollLeft = this.state.scrollMove;
         console.log(this.state.scrollMove / this.state.imageWidth, this.state.indicatorActive);
     }
-    
+
     render() {
         const sliderRender =  this.state.frames.map((frame, i) => (
             <li><img width="800px" height="300px" src={frame} alt="carousel-images"></img></li>
         ))
-        const indicatorRender =  this.state.frames.map(dd => <dd className={ this.state.indicatorActive === this.state.scrollMove / this.state.imageWidth ?  "active" : null }></dd>)
+        const indicatorRender =  this.state.frames.map((dd, index) => <dd className={ index == this.state.indicatorActive ?  "active" : null }></dd>)
         return (
             <div className="carousel-container">
                 <div className="carousel-wrapper">
